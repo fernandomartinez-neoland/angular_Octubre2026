@@ -1,0 +1,24 @@
+<p>login-form works!</p>
+<h1>{{nombre()}}</h1>
+<form (ngSubmit)="onSubmit()">
+    @if(slink()===true){
+
+        <a routerLink="/inicio/result">Result</a>
+    }
+    <p>
+    <!-- Una simple etiqueta de texto para que el usuario sepa qué escribir -->
+    <label for="nombre">Nombre</label>
+    
+    <!-- 
+      ¡Este es el recuadro blanco donde escribimos con el teclado (<input>)!
+      
+      1. [ngModel]="nombre()" hace que el recuadro siempre muestre lo que hay en nuestra caja 'nombre'.
+      2. (ngModelChange)="changeName($event)" significa: "Ojo, cada vez que el usuario teclee una 
+         letra nueva o la borre, corre a avisarle a la acción 'changeName' y pásale el nuevo texto ($event)".
+    -->
+    <input  [ngModel]="nombre()" (ngModelChange)="changeName($event)" type="number" name="nombre"
+        placeholder="Ingrese su nombre">
+
+    <!-- Este es el botón mágico. Al darle click, activa la acción de Enviar del formulario -->
+    <button type="submit">Enviar</button>
+</form>
